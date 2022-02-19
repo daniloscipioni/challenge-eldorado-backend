@@ -1,0 +1,20 @@
+{
+  "name": "challenge-eldorado-backend",
+  "version": "1.0.0",
+  "description": "Challenge Eldorado Backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js"
+  },
+  "author": "Danilo Scipioni",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15",
+    "openapi-comment-parser": "^1.0.0",
+    "swagger-ui": "^4.5.0",
+    "swagger-ui-express": "^4.3.0"
+  }
+}
