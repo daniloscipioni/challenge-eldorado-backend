@@ -12,5 +12,9 @@ app.use(express.json());
 app.use(express.json({ type: 'application/vnd.api+json' }));
 app.use(cors());
 
+// Api Routes
+const index = require('./routes/index');
+
+app.use(index);
 
 module.exports = app;
