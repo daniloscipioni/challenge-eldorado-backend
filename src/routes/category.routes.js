@@ -10,6 +10,7 @@ router.post('/add-category', async(req, res)=> {
 
 router.delete('/remove-category/:id', async(req, res)=> {
     const deleteRegister = await categoryController.deleteCategory(req.params.id);
+    
     res.status(200).json(deleteRegister);
 })
 

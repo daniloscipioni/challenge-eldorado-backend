@@ -23,15 +23,15 @@ exports.registerCategory = async (req, res) => {
             if (err) throw err;
 
         });
-        return { 
-                 data: `Category  ${req.name} added!`, 
-                 success: true 
-               }
+        return {
+            data: `Category  ${req.name} added!`,
+            success: true
+        }
     } catch (error) {
         return {
-            data: 'Error', 
-            success: false, 
-            rowCount: 0, 
+            data: 'Error',
+            success: false,
+            rowCount: 0,
             message: 'Category not registered!',
         };
     }
@@ -39,23 +39,26 @@ exports.registerCategory = async (req, res) => {
 }
 
 exports.deleteCategory = async (req) => {
+
     try {
-
-        db.query(`DELETE FROM tbl_category where id = ${req}`, function (err, result, fields) {
-            if (err) throw err;
-
+        const response = await db.query(`DELETE FROM tbl_category where id = ${req}`, function (err, result, fields) {
+            if (err) console.log(err.sqlMessage);
         });
-        return { 
-                    data: `Category  ${req} removida!`, 
-                    success: true 
-                }
+        return {
+            data: "Register must be removed",
+
+        };
     } catch (error) {
         return {
-            data: 'Error', 
-            success: false, 
-            rowCount: 0, 
-            message: 'Category not removed!',
+            data: error,
+            success: false,
+            rowCount: 0,
+
         };
     }
+
+
+
+
 
 }
