@@ -13,23 +13,49 @@ exports.listAllCategories = async (req, res) => {
         )
 
     });
-   
+
 }
 
 exports.registerCategory = async (req, res) => {
     try {
 
-    } catch (error) {
+        db.query(`INSERT INTO tbl_category(name)VALUES ('${req.name}')`, function (err, result, fields) {
+            if (err) throw err;
 
+        });
+        return { 
+                 data: `Category  ${req.name} added!`, 
+                 success: true 
+               }
+    } catch (error) {
+        return {
+            data: 'Error', 
+            success: false, 
+            rowCount: 0, 
+            message: 'Category not registered!',
+        };
     }
 
 }
 
-exports.deleteCategory = async (req, res) => {
+exports.deleteCategory = async (req) => {
     try {
 
-    } catch (error) {
+        db.query(`DELETE FROM tbl_category where id = ${req}`, function (err, result, fields) {
+            if (err) throw err;
 
+        });
+        return { 
+                    data: `Category  ${req} removida!`, 
+                    success: true 
+                }
+    } catch (error) {
+        return {
+            data: 'Error', 
+            success: false, 
+            rowCount: 0, 
+            message: 'Category not removed!',
+        };
     }
 
 }
