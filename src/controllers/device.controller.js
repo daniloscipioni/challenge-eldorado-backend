@@ -1,5 +1,11 @@
 const db = require('../config/database');
 
+/**
+ *
+ * @param {*} req
+ * @param {*} res
+ * @return a list of devices
+ */
 exports.listAllDevices = async (req, res) => {
   db.query('select dev.id, cat.name category , color, part_number partNumber from tbl_device dev join tbl_category cat on dev.id_category = cat.id', (err, result, fields) => {
     try {
@@ -17,10 +23,15 @@ exports.listAllDevices = async (req, res) => {
         rowCount: result.length,
       };
     }
-    // if (err) throw err;
   });
 };
 
+/**
+ *
+ * @param {*} req
+ * @param {*} res
+ * @returns Device registration
+ */
 exports.registerDevice = async (req, res) => {
   try {
     db.query(`INSERT INTO tbl_device(id_category, color, part_number)VALUES ('${req.category}','${req.color}','${req.partNumber}')`, (err, result, fields) => {
@@ -40,6 +51,12 @@ exports.registerDevice = async (req, res) => {
   }
 };
 
+/**
+ *
+ * @param {*} req
+ * @param {*} res
+ * @returns Delete a device
+ */
 exports.deleteDevice = async (req, res) => {
   try {
     db.query(`DELETE FROM tbl_device where id = ${req}`, (err, result, fields) => {

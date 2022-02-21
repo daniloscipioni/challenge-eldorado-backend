@@ -15,12 +15,13 @@ app.use(express.json());
 app.use(express.json({ type: 'application/vnd.api+json' }));
 app.use(cors());
 
+// Added routes
 app.use(index);
 app.use('/api/', categoryRoute);
 app.use('/api/', deviceRoute);
 
+// Initializing swagger
 const spec = openapi();
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(spec));
-
 
 module.exports = app;
