@@ -2,6 +2,11 @@ openapi: 3.0.0
 info: 
   title: Api Rest For Challenge Eldorado
   version: 1.0.0
+  contact: 
+    name: Danilo Eduardo Scipioni
+    email: daniloedu@gmail.com
+    url: https://github.com/daniloscipioni
+components:
   schemas:
     Categories:
       type: object
@@ -9,8 +14,19 @@ info:
         name:
           type: string
       example:
-            name: daniloscipioni
-           
-
+            name: <category>
+    Devices:
+      type: object
+      properties:
+        category:
+          type: integer
+        color:
+          type: string
+        partNumber:
+          type: integer
+      example:
+            category: <id category>
+            color: <color>
+            partNumber: <part number>
     
     

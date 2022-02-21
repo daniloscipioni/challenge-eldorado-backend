@@ -36,7 +36,7 @@ exports.registerDevice = async (req, res) => {
 
         });
         return {
-            data: `Device  ${req.id_category} added!`,
+            data: `Device id: ${req.category} color:${req.color} part number:${req.partNumber} added!`,
             success: true
         }
     } catch (error) {

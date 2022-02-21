@@ -4,7 +4,7 @@ const deviceController = require('../controllers/device.controller');
 /**
  * GET /api/devices
  * @summary Returns a list of devices.
- * @description API that returns a list of devices registered.
+ * @description API that returns a list of devices.
  * @tag Devices
  * @response 200 - A JSON array of devices
  * @responseContent {string[]} 200.application/json 
@@ -14,9 +14,10 @@ router.get('/devices', deviceController.listAllDevices);
 /**
  * POST /api/add-device
  * @summary Register a new device.
- * @description API that register a new device.
+ * @description API that Register a new device.
  * @tag Devices
  * @response 200 - A JSON array
+ * @bodyContent {Devices} application/json
  * @responseContent {string[]} 200.application/json 
  */
 router.post('/add-device', async(req, res)=> {
@@ -25,11 +26,12 @@ router.post('/add-device', async(req, res)=> {
 })
 
 /**
- * DELETE /api/remove-device/:id
- * @summary Delete a device.
+ * DELETE /api/remove-device/{id}
+ * @summary Delete a category.
  * @description API that deletes a device.
  * @tag Devices
  * @response 200 - A JSON array
+ * @pathParam {integer} id - id of a device
  * @responseContent {string[]} 200.application/json 
  */
 router.delete('/remove-device/:id', async(req, res)=> {

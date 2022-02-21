@@ -6,7 +6,7 @@ const categoryController = require('../controllers/category.controller');
  * @summary Returns a list of categories.
  * @description API that returns a list of categories available to choose.
  * @tag Categories
- * @response 200 - A JSON array of user categories
+ * @response 200 - A JSON array of categories
  * @responseContent {string[]} 200.application/json 
  */
 router.get('/categories', categoryController.listAllCategories);
@@ -26,12 +26,12 @@ router.post('/add-category', async(req, res)=> {
 })
 
 /**
- * DELETE /api/remove-category/:id
+ * DELETE /api/remove-category/{id}
  * @summary Delete a category.
- * @description API that deletes a new category.
+ * @description API that deletes a category.
  * @tag Categories
  * @response 200 - A JSON array
- * @queryParam {integer} [id] - id
+ * @pathParam {integer} id - id of a category
  * @responseContent {string[]} 200.application/json 
  */
 router.delete('/remove-category/:id', async(req, res)=> {
